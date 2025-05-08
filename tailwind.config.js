@@ -43,11 +43,16 @@ const config = {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.3' },
         },
+        glowTrail: {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
+        },
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
         glow: 'pulseGlow 3s ease-in-out infinite',
         flicker: 'flicker 2s infinite',
+        glowTrail: 'glowTrail 3s ease-in-out infinite',
       },
       transitionProperty: {
         width: 'width',

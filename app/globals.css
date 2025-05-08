@@ -23,6 +23,10 @@
   animation: backgroundPulse 20s ease infinite;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* --- GLASS EFFECT --- */
 .bg-glass {
   background: rgba(255, 255, 255, 0.05);

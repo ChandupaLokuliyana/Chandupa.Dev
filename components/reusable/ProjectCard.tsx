@@ -42,6 +42,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <Image
           src={project.image}
           alt={project.title}
+          fill
           className="w-full h-full object-cover transition duration-300 group-hover:scale-105"
         />
 
@@ -49,6 +50,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Image
             src={project.preview}
             alt={`${project.title} Preview`}
+            fill
             className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           />
         )}
@@ -81,7 +83,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           target="_blank"
           className="px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg text-black font-semibold hover:scale-105 transition-transform flex items-center gap-2"
         >
-          Live <FaExternalLinkAlt className="icon transition-transform group-hover:translate-x-1" />
+          More <FaExternalLinkAlt className="icon transition-transform group-hover:translate-x-1" />
         </a>
         <a
           href={project.githubUrl}

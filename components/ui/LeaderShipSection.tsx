@@ -10,37 +10,38 @@ import dynamic from 'next/dynamic'
 const R3FCanvas = dynamic(() => import('../reusable/R3FCanvas'), { ssr: false })
 
 const trophies = [
-  { title: 'Best Debater – Siyawas Prathapa ‘24', subtitle: 'National Finals, 1st Place', icon: '🏆' },
-  { title: 'ICT Society Secretary', subtitle: 'Organized 5+ events', icon: '📣' },
-  { title: 'Wagandara ’23 Champion', subtitle: 'Island-wide event winner', icon: '🥇' },
+  { title: 'Best Debater – Ananda Piyadigama ‘24', subtitle: 'All Island Championship', icon: '🏆' },
+  { title: 'ICT Society Secretary', subtitle: 'Revived Thurstan College ICT Day after 8 years', icon: '📣' },
+  { title: 'Team Leader', subtitle: 'Top Dhamma School Team – Colombo District', icon: '🥇' },
+  { title: 'Best Developer', subtitle: '1st Place – Web Design Competition', icon: '🥳' },
 ]
 
 const moments = [
   {
-    title: 'Sirasa TV Finals',
-    caption: 'Leaders for the Future – National Debate',
-    src: '/achievements/121.jpg',
+    title: 'Seethala Ithala – Charana TV',
+    caption: 'Invited guest speaker at age 18 for a national TV program discussing youth innovation and education.',
+    src: '/achievements/charana.jpg',
+  },
+  {
+    title: 'Prathirawa – Ananda College',
+    caption: 'Champions of Sri Lanka’s oldest all-island school-level debate tournament.',
+    src: '/achievements/prathirawa.jpg',
+  },
+  {
+    title: 'Avarjana – Open Tournament',
+    caption: 'Won against university-level debaters. Selected to the “Dream Team of the Tournament.”',
+    src: '/achievements/Avarjana.jpg',
+  },
+  {
+    title: 'The Debater – Sirasa TV',
+    caption: 'Represented Thurstan College in Sri Lanka’s biggest televised debate show.',
+    src: '/achievements/TheDebater.jpg',
     video: true,
   },
   {
-    title: 'Debate Stage Win',
-    caption: 'Royal College Finals',
-    src: '/achievements/121.jpg',
-  },
-  {
-    title: 'ICT Society Event',
-    caption: 'Leadership & Event Hosting',
-    src: '/achievements/121.jpg',
-  },
-  {
-    title: 'Panel Discussion',
-    caption: 'Representing ICT Leadership',
-    src: '/achievements/121.jpg',
-  },
-  {
-    title: 'Debate Workshop',
-    caption: 'Trained 100+ new debaters',
-    src: '/achievements/121.jpg',
+    title: 'Techno Vision – Rotaract Club',
+    caption: 'First championship win as captain of the Thurstan College team.',
+    src: '/achievements/TechnoVision.jpg',
   },
 ]
 
@@ -52,7 +53,7 @@ export default function LeadershipSection() {
   const visibleGallery = moments.slice(currentIndex, currentIndex + 3)
 
   const next = () => {
-    setCurrentIndex((prev) => (prev + 3 >= moments.length ? 0 : prev + 1))
+    setCurrentIndex((prev) => (prev + 1 + 3 > moments.length ? 0 : prev + 1))
   }
 
   const prev = () => {
@@ -62,10 +63,8 @@ export default function LeadershipSection() {
   }
 
   return (
-    <section id="leadership" className="bg-gradient-to-br from-[#0f172a] via-[#203a43] to-[#2c5364] text-white py-28 px-6 md:px-12">
+    <section id="leadership" className="py-24 px-6 md:px-12 bg-[#0f172a] text-white relative overflow-hidden">
       <R3FCanvas />
-      
-      {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +74,7 @@ export default function LeadershipSection() {
         🏆 Leadership & Legacy
       </motion.h2>
 
-      {/* Trophy Section */}
+      {/* Trophies */}
       <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
         <div className="space-y-8">
           <motion.blockquote
@@ -84,7 +83,7 @@ export default function LeadershipSection() {
             transition={{ duration: 0.6 }}
             className="italic text-xl text-cyan-300 border-l-4 pl-4 border-cyan-500 bg-[#0d1b2a]/30 rounded max-w-md"
           >
-            “15+ championships including Wagandara ‘23, Siyawas Prathapa”
+            “15+ championships including debating, oratory and software excellence.”
           </motion.blockquote>
 
           <motion.div
@@ -120,12 +119,12 @@ export default function LeadershipSection() {
         </div>
       </div>
 
-      {/* Champion Moments Section with entrance animation */}
+      {/* Champion Moments */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="mt-24"
       >
         <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-cyan-300 drop-shadow-glow">
@@ -133,53 +132,63 @@ export default function LeadershipSection() {
         </h3>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Gallery */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {visibleGallery.map((item, i) => (
               <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="relative group rounded-xl overflow-hidden shadow-md shadow-cyan-500/20 border border-cyan-400/10 bg-white/5 backdrop-blur-md cursor-pointer"
-                onClick={() => {
-                  setLightboxIndex((currentIndex + i) % moments.length)
-                  setLightboxOpen(true)
-                }}
-              >
-                <div className="relative w-full h-56">
-                  <Image
-                    src={item.src}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+              key={i}
+              whileHover={{ scale: 1.02 }}
+              className="relative group rounded-xl overflow-hidden shadow-lg border border-cyan-500/20 bg-[#0d1b2a]/40 backdrop-blur-md transition-all cursor-pointer"
+              onClick={() => {
+                setLightboxIndex((currentIndex + i) % moments.length)
+                setLightboxOpen(true)
+              }}
+            >
+              {/* Image */}
+              <div className="relative w-full h-56 overflow-hidden">
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Dark gradient overlay for text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              </div>
+            
+              {/* Text */}
+              <div className="absolute bottom-0 p-4 z-10">
+                <h3 className="text-lg font-bold text-white drop-shadow-md">{item.title}</h3>
+                <p className="text-sm text-cyan-200 mt-1">{item.caption}</p>
+              </div>
+            
+              {/* Video Label */}
+              {item.video && (
+                <div className="absolute top-2 right-2 text-xs px-2 py-1 rounded-full bg-cyan-600/80 text-white font-semibold shadow-md animate-pulse">
+                  🎬 Video
                 </div>
-                <div className="absolute bottom-0 bg-gradient-to-t from-black/80 to-transparent w-full p-4">
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm text-cyan-200">{item.caption}</p>
-                </div>
-                {item.video && (
-                  <div className="absolute top-2 left-2 text-xs bg-cyan-600 px-2 py-0.5 rounded-full text-white">
-                    🎬 Video
-                  </div>
-                )}
-              </motion.div>
+              )}
+            </motion.div>            
             ))}
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-center gap-6 mt-8">
-            <button
+          <div className="flex justify-center items-center gap-4 mt-10">
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05 }}
               onClick={prev}
-              className="bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-700 transition"
+              className="px-4 py-2 rounded-full border border-cyan-400 text-cyan-200 hover:bg-cyan-700/20 transition-all backdrop-blur-sm"
             >
-              ← Prev
-            </button>
-            <button
+              ← Previous
+            </motion.button>
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05 }}
               onClick={next}
-              className="bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-700 transition"
+              className="px-4 py-2 rounded-full border border-cyan-400 text-cyan-200 hover:bg-cyan-700/20 transition-all backdrop-blur-sm"
             >
               Next →
-            </button>
+            </motion.button>
           </div>
         </div>
       </motion.div>

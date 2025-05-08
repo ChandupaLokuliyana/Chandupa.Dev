@@ -29,7 +29,8 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative w-full min-h-screen bg-[#0f172a] text-white px-6 md:px-20 py-20 overflow-hidden flex flex-col md:flex-row items-center justify-between">
+    
+    <section id="home" className="relative w-full min-h-screen bg-[#0f172a] text-white px-6 md:px-20 py-20 overflow-hidden flex flex-col md:flex-row items-center justify-between">
       <R3FCanvas />
 
       {/* 💬 Left Text */}
@@ -43,9 +44,9 @@ export default function HeroSection() {
           <Typewriter
             key={loopIndex}
             options={{
-              strings: greetings,
+              strings: [greetings[loopIndex]],
               autoStart: true,
-              loop: true,
+              loop: false,
               delay: 40,
               deleteSpeed: 30,
             }}
@@ -58,8 +59,15 @@ export default function HeroSection() {
 
         <div className="flex gap-4 mt-6">
           <JellyButton>🚀 View Projects</JellyButton>
-          <JellyButton variant="glow">📄 Download Resume</JellyButton>
-        </div>
+          <a
+            href="/Chandupa Poorna Lokuliyana.pdf"
+            download
+            className="inline-block bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-6 py-2 rounded-full shadow-md hover:shadow-cyan-600 transition-all"
+          >
+            📄 Download Resume
+          </a>
+
+          </div>
 
         <motion.div
           animate={{ y: [0, 10, 0] }}
