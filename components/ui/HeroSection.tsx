@@ -6,6 +6,7 @@ import Typewriter from 'typewriter-effect'
 import { FaArrowDown } from 'react-icons/fa'
 import avatarAnimation from '@/public/lottie/Animation - 1746417621387.json'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const R3FCanvas = dynamic(() => import('../reusable/R3FCanvas'), { ssr: false })
 const Lottie = dynamic(() => import('lottie-react'), {
@@ -47,7 +48,7 @@ export default function HeroSection() {
               strings: [greetings[loopIndex]],
               autoStart: true,
               loop: false,
-              delay: 40,
+              delay: 70,
               deleteSpeed: 30,
             }}
           />
@@ -58,14 +59,18 @@ export default function HeroSection() {
         </p>
 
         <div className="flex gap-4 mt-6">
+        <Link href="#projects" passHref>
           <JellyButton>🚀 View Projects</JellyButton>
-          <a
-            href="/Chandupa Poorna Lokuliyana.pdf"
-            download
-            className="inline-block bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-6 py-2 rounded-full shadow-md hover:shadow-cyan-600 transition-all"
-          >
-            📄 Download Resume
-          </a>
+        </Link>
+
+          <JellyButton variant="glow">
+            <a
+              href="/Chandupa Poorna Lokuliyana.pdf"
+              download
+            >
+              📄 Download Resume
+            </a>
+          </JellyButton>
 
           </div>
 

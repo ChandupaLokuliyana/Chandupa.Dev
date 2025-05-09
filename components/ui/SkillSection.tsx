@@ -60,7 +60,7 @@ const skillGroups = {
   Backend: [
     { name: 'Django', level: 80, icon: SiDjango },
     { name: 'Node.js', level: 75, icon: SiNodedotjs },
-    { name: 'GoLang', level: 70, icon: SiGoland },
+    { name: 'GoLang', level: 65, icon: SiGoland },
   ],
   Tools: [
     { name: 'Git', level: 85, icon: SiGit },
@@ -70,7 +70,11 @@ const skillGroups = {
 }
 
 export default function SkillsSection() {
-  const { ref, inView } = useInView({ triggerOnce: true })
+  const { ref, inView } = useInView({
+    triggerOnce: false, 
+    threshold: 0.3,     
+  })
+  
 
   return (
     <section id="skills" className="py-28 px-6 md:px-12 bg-[#0e1b2c]/80 backdrop-blur-md text-white relative z-10 overflow-hidden">

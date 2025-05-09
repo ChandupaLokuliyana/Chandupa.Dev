@@ -37,7 +37,7 @@ export default function JellyButton({
   return (
     <motion.button
       onClick={handleClick}
-      whileTap={{ scale: 0.92 }}
+      whileTap={{ scale: 0.95 }}
       whileHover={{ scale: 1.05 }}
       className={cn(
         'relative overflow-hidden px-6 py-2 rounded-full border transition-all duration-300 font-semibold',
